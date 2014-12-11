@@ -14,15 +14,15 @@
 
 ## Installation
 1. Get SocialCG
->'git clone https://github.com/TMROTV/SocialCG.git'
+```git clone https://github.com/TMROTV/SocialCG.git```
 2. Change to the SocialCG directory
->'cd SocialCG'
+'cd SocialCG'
 3. Install npm dependencies
->'sudo npm install'
+'sudo npm install'
 4. Build frontend client
->'npm run build'
+'npm run build'
 5. Run the server
->'npm start'
+'npm start'
 
 ## License
 TBD
