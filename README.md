@@ -14,7 +14,9 @@
 
 ## Installation
 1. Get SocialCG
-```git clone https://github.com/TMROTV/SocialCG.git```
+```
+git clone https://github.com/TMROTV/SocialCG.git
+```
 2. Change to the SocialCG directory
 'cd SocialCG'
 3. Install npm dependencies
