@@ -1,7 +1,7 @@
 {
-  "name": "angularfeathers",
-  "version": "1.0.0",
-  "description": "",
+  "name": "SocialCG",
+  "version": "0.1.0",
+  "description": "Web Client for CasparCG Server to facilitate social media aggregation and on-air graphics automation.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
