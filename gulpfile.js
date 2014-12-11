@@ -2,13 +2,13 @@
  * Module dependencies.
  */
 
-var fs = require('fs');
+//var fs = require('fs');
 var gulp = require('gulp');
-var path = require('path');
+//var path = require('path');
 var mkdirp = require('mkdirp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+//var buffer = require('vinyl-buffer');
 var del = require('del');
 var templateCache = require('gulp-angular-templatecache');
 var ngannotate = require('browserify-ngannotate');
@@ -28,10 +28,9 @@ gulp.task('templates', function() {
 });
 
 var getbundle = function(env){
-    var d = env === "dev" ? true : false;
     var bundler = browserify({
         entries: ['./client/index.js'],
-        debug: d
+        debug: env === "dev"
     });
 
     var bundle = function() {
@@ -57,18 +56,17 @@ var getbundle = function(env){
     return bundle();
 };
 
-gulp.task('browserify-dev',['templates'], function() {
+gulp.task('browserify-dev',['templates','clean'], function() {
     return getbundle('dev');
 });
 
-gulp.task('browserify-prod',['templates'], function() {
+gulp.task('browserify-prod',['templates','clean'], function() {
     return getbundle('prod');
 });
 
 gulp.task('clean',function(done){
     mkdirp('./build');
-    del('./build/**/*.*');
-    return done();
+    del('./build/**/*.*',{},done);
 });
 
 gulp.task('copy', function() {
@@ -76,10 +74,9 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('reworkcss', function() {
+gulp.task('reworkcss',['clean'], function() {
     return gulp.src('client/styles/index.css')
         .pipe(rework(reworknpm()))
-        //.pipe(source('build.css'))
         .pipe(gulp.dest('build'));
 });
 
@@ -87,7 +84,13 @@ gulp.task('watch',['default'], function() {
     return gulp.watch('./client/**/*.*', ['default']);
 });
 
-gulp.task('default',['clean','copy','browserify-dev','reworkcss']);
+gulp.task('default',['copy','browserify-dev','reworkcss'], function(){
+    //run all tasks then cleanup
+    del('./client/templates.js');
+});
 
-gulp.task('prod',['clean','copy','browserify-prod','reworkcss']);
+gulp.task('prod',['copy','browserify-prod','reworkcss'],function(){
+    //run all tasks then cleanup
+    del('./client/templates.js');
+});
 
