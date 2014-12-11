@@ -24,5 +24,3 @@ app.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
             controller: require('./controllers/home')(app)
         });
 });
-
-app.run();

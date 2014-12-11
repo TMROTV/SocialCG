@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
+    "start": "node .",
+    "build": "node ./node_modules/gulp/bin/gulp prod"
   },
   "author": "Thomas Kaltz III",
   "license": "ISC",

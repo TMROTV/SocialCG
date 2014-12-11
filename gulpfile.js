@@ -84,13 +84,13 @@ gulp.task('watch',['default'], function() {
     return gulp.watch('./client/**/*.*', ['default']);
 });
 
-gulp.task('default',['copy','browserify-dev','reworkcss'], function(){
+gulp.task('default',['copy','browserify-dev','reworkcss'], function(done){
     //run all tasks then cleanup
-    del('./client/templates.js');
+    del('./client/templates.js',{},done);
 });
 
-gulp.task('prod',['copy','browserify-prod','reworkcss'],function(){
+gulp.task('prod',['copy','browserify-prod','reworkcss'],function(done){
     //run all tasks then cleanup
-    del('./client/templates.js');
+    del('./client/templates.js',{},done);
 });
 
