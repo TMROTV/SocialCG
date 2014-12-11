@@ -22,7 +22,7 @@
 4. Build frontend client
 `npm run build`
 5. Run the server
-```npm start```
+>```npm start```
 
 ## License
 TBD
