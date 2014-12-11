@@ -1,5 +1,5 @@
 # SocialCG
-#### Web Client for CasparCG Server to facilitate social media aggregation and on-air graphics automation.
+#### Realtime Web Client for CasparCG Server to facilitate social media aggregation and on-air graphics automation.
 --------
 
 ## Technologies Used
@@ -22,7 +22,7 @@
 4. Build frontend client
 `npm run build`
 5. Run the server
-`npm start`
+```npm start```
 
 ## License
 TBD
