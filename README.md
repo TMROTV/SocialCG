@@ -28,5 +28,8 @@ Build frontend client
 Run the server
 >`npm start`
 
+Visit the app in your browser
+>`http://localhost:8080/`
+
 ## License
 TBD
