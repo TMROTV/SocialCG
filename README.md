@@ -32,4 +32,4 @@ Visit the app in your browser
 >`http://localhost:8080/`
 
 ## License
-TBD
+[ISC](LICENSE.md)
