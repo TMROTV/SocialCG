@@ -1,6 +1,4 @@
 module.exports = function(req, res, next) {
-    var p = require('path');
-
     // respond with html page
     if (req.accepts('html')) {
         res.sendFile('./build/index.html', {root: __dirname+'/../../'});
@@ -15,4 +13,4 @@ module.exports = function(req, res, next) {
 
     // default to plain-text. send()
     res.type('txt').send('Not found');
-}
+};

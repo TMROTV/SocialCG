@@ -7,4 +7,4 @@ module.exports = function(_){
 
     _.assign(config, require('./'+config.mode));
     return config;
-}
+};

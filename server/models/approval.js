@@ -1,5 +1,5 @@
-module.exports = function(mongodb,app,config){
-    //This REST model is a proxy to the messages model for appoving and querying approved messages
+module.exports = function(mongodb,app){
+    //This REST model is a proxy to the messages model for approving and querying approved messages
     var notapp = function(id, params, callback) {
         callback('NOT APPLICABLE');
     };
@@ -7,7 +7,7 @@ module.exports = function(mongodb,app,config){
     var approvals = {
         find: function(params, callback) {
             app.service('messages')
-                find({query:{approved: true}},callback);
+                .find({query:{approved: true}},callback);
         },
         get: notapp,
         create: function(data, params, callback) {
