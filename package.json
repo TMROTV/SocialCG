@@ -10,6 +10,7 @@
   },
   "author": "Thomas Kaltz III",
   "license": "ISC",
+  "repository": "https://github.com/TMROTV/SocialCG.git",
   "dependencies": {
     "bluebird": "^2.3.11",
     "body-parser": "^1.10.0",
@@ -35,6 +36,7 @@
     "socket.io-client": "^1.2.1",
     "uglifyify": "^2.6.0",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.0.0"
+    "vinyl-source-stream": "^1.0.0",
+    "ng-grid": "git+https://github.com/angular-ui/ng-grid.git#v2.0.14"
   }
 }

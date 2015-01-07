@@ -7,7 +7,5 @@ module.exports = function (feathers) {
         .use(bodyParser.json())
         .use(bodyParser.urlencoded({ extended: true }))
         .use(feathers.static(__dirname + '/../../build'));
-
-
     return app;
 }
