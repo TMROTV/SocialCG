@@ -1,4 +1,4 @@
 module.exports = {
-    database: "angularfeathers-test",
+    database: "socialcg-test",
     port: 5235
 };

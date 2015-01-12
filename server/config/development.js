@@ -1,3 +1,3 @@
 module.exports = {
-    database: "angularfeathers-development"
+    database: "socialcg-development"
 };

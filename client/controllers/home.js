@@ -5,12 +5,17 @@ module.exports = function (app) {
 
         var messages = remoteService.messages;
         var approvals = remoteService.approvals;
+        var onair = remoteService.onair;
 
         $scope.unapproveall = function(){
             approvals.remove('all', function (err, message) {
                 if(err)
                     alert(err);
             });
+        };
+
+        $scope.clearcaspar = function(){
+            onair.remove('casparclear');
         };
 
         $scope.approvemessage = function (id) {
@@ -27,6 +32,15 @@ module.exports = function (app) {
             });
         };
 
+        $scope.sendtoair = function(id){
+            onair.create({id:id}, function (err, message) {
+                if(err)
+                    alert(err);
+            });
+        };
+
+
+
         $scope.myData = [];
         $scope.gridOpts = {
             enableFiltering: true,
@@ -34,11 +48,18 @@ module.exports = function (app) {
             showFooter: true,
             enableRowSelection: false,
             multiSelect: false,
+            //rowHeight: 50,
             columnDefs: [
                 { field: 'message', displayName: 'Message',width:'*' },
-                { field: 'approved', displayName: 'Approved',width:70 },
-                { field: 'button', displayName: 'Approve',width:140 , cellTemplate: '<div><button class="btn btn-xs btn-primary" ng-disabled="row.entity.approved" ng-click="approvemessage(row.entity._id); $event.stopPropagation();">Approve</button><button class="btn btn-xs btn-primary" ng-disabled="!row.entity.approved" ng-click="unapprovemessage(row.entity._id); $event.stopPropagation();">Unapprove</button></div>' },
-
+                { field: 'sourcedate', displayName: 'Time',width:'*' },
+                { field: 'handle', displayName: 'Handle',width:'*' },
+                { field: 'actions', displayName: 'Actions',width:'230'
+                   ,cellTemplate: '<div>'
+                   + '<button class="btn btn-xs btn-primary" ng-disabled="row.entity.approved" ng-click="approvemessage(row.entity._id); $event.stopPropagation();">Approve</button>'
+                   + ' <button class="btn btn-xs btn-primary" ng-hide="!row.entity.approved" ng-disabled="!row.entity.approved || row.entity.onair" ng-click="unapprovemessage(row.entity._id); $event.stopPropagation();">Unapprove</button>'
+                   + ' <button class="btn btn-xs btn-warning" ng-hide="!row.entity.approved" ng-disabled="row.entity.onair" ng-click="sendtoair(row.entity._id); $event.stopPropagation();">Send To Air</button>'
+                   + '</div>'
+                }
             ],
             data: 'myData'
         };

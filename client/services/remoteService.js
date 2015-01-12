@@ -7,13 +7,15 @@ module.exports = function (app) {
         var users = service('/users', socket);
         var messages = service('/messages', socket);
         var approvals = service('/approvals', socket);
+        var onair = service('/onair', socket);
 
         return {
             io: socket,
             servicefactory: service,
             users: users,
             messages: messages,
-            approvals: approvals
+            approvals: approvals,
+            onair: onair
         }
     });
 }

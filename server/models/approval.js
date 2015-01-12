@@ -12,7 +12,7 @@ module.exports = function(mongodb,app){
         get: notapp,
         create: function(data, params, callback) {
             app.service('messages')
-                .patch(data.id,{approved:true},callback);
+                .patch(data.id,{approved:true},{},callback);
         },
         update: notapp,
         patch: notapp,
@@ -22,14 +22,13 @@ module.exports = function(mongodb,app){
                     .find({query:{approved:true}},function(err,recs){
                         recs.forEach(function(rec){
                             app.service('messages')
-                                .patch(rec._id,{approved:false},callback);
+                                .patch(rec._id,{approved:false},{},callback);
                         });
                     });
-                return;
+            }else{
+                app.service('messages')
+                    .patch(id,{approved:false},{},callback);
             }
-
-            app.service('messages')
-                .patch(id,{approved:false},callback);
         }
     };
     app.use('/approvals', approvals);
