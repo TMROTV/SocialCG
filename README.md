@@ -9,7 +9,7 @@
  - socket.io
  
 ## Requirements
- - Install [nodejs.js](http://nodejs.org/)
+ - Install [node](http://nodejs.org/)
  - Install and Run [mongodb](http://www.mongodb.org/)
 
 ## Installation
@@ -30,6 +30,11 @@ Run the server
 
 Visit the app in your browser
 >`http://localhost:8080/`
+
+## Development
+
+Use gulp to automatically rebuild frontend when a file changes.  Server livereload is not yet implemented.
+>`gulp watch`
 
 ## License
 [ISC](LICENSE.md)

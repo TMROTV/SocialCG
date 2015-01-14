@@ -19,7 +19,7 @@ module.exports = function(mongodb,app){
         remove: function(id, params, callback) {
             if(id === 'all'){
                 app.service('messages')
-                    .find({query:{approved:true}},function(err,recs){
+                    .find({query:{approved:true,onair:false}},function(err,recs){
                         recs.forEach(function(rec){
                             app.service('messages')
                                 .patch(rec._id,{approved:false},{},callback);

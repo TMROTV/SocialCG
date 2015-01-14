@@ -6,6 +6,7 @@ module.exports = function (feathers) {
         .configure(feathers.socketio())
         .use(bodyParser.json())
         .use(bodyParser.urlencoded({ extended: true }))
-        .use(feathers.static(__dirname + '/../../build'));
+        .use(feathers.static(__dirname + '/../../build'))
+        .use(require('./notfound'));
     return app;
 };
